@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { MessageSquare, Image, Music, Video, FileText, Code, Wand2, Brain } from 'lucide-react';
+import { MessageSquare, Music, Video, FileText, Code, Wand2, Brain } from 'lucide-react';
 
 export default function ProjectsPage() {
   const aiTools = [
@@ -11,38 +11,31 @@ export default function ProjectsPage() {
       color: 'emerald'
     },
     {
-      title: 'Image Generator',
-      description: 'Text-to-image AI that creates stunning visuals from descriptions',
-      icon: Image,
-      link: '#',
-      color: 'blue'
-    },
-    {
       title: 'Music Composer',
       description: 'AI-powered music generation based on mood and genre preferences',
       icon: Music,
-      link: '#',
+      link: '/projects/music-composer',
       color: 'purple'
     },
     {
       title: 'Video Editor',
       description: 'Automated video editing with AI-driven scene detection and transitions',
       icon: Video,
-      link: '#',
+      link: '/projects/video-editor',
       color: 'pink'
     },
     {
       title: 'Content Writer',
       description: 'Generate high-quality articles, blog posts, and creative content',
       icon: FileText,
-      link: '#',
+      link: '/projects/content-writer',
       color: 'yellow'
     },
     {
       title: 'Code Assistant',
       description: 'AI-powered code completion, refactoring, and bug detection',
       icon: Code,
-      link: '#',
+      link: '/projects/code-assistant',
       color: 'cyan'
     },
     {
@@ -56,7 +49,7 @@ export default function ProjectsPage() {
       title: 'Smart Analytics',
       description: 'ML-powered data analysis and predictive insights',
       icon: Brain,
-      link: '#',
+      link: '/projects/smart-analytics',
       color: 'red'
     },
   ];

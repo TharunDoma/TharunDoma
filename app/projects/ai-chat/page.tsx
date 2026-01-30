@@ -15,12 +15,13 @@ export default function AiChatPage() {
     {
       id: '1',
       role: 'assistant',
-      content: 'Hello! I\'m your AI assistant. How can I help you today?',
+      content: 'Hello! I\'m your AI assistant. Ask me anything about my experience, skills, or projects!',
       timestamp: new Date()
     }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [sessionId] = useState(Math.random().toString(36).substring(7));
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -46,26 +47,43 @@ export default function AiChatPage() {
     setInput('');
     setIsLoading(true);
 
-    // Simulate AI response (in a real app, this would call an API)
-    setTimeout(() => {
-      const aiResponse: Message = {
+    try {
+      // Call the actual chat API
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: input,
+          sessionId,
+          conversationHistory: messages.map(m => ({
+            type: m.role === 'user' ? 'user' : 'ai',
+            content: m.content
+          }))
+        })
+      });
+
+      const data = await response.json();
+      
+      const aiMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
-        content: generateMockResponse(input),
+        content: data.reply || 'Sorry, I couldn\'t process that request.',
         timestamp: new Date()
       };
-      setMessages(prev => [...prev, aiResponse]);
-      setIsLoading(false);
-    }, 1000);
-  };
 
-  const generateMockResponse = (userInput: string): string => {
-    const responses = [
-      `I understand you're asking about "${userInput}". That's a great question! In a production environment, I would provide a detailed AI-generated response based on advanced language models.`,
-      `Regarding "${userInput}", here are some insights: This is a mock response demonstrating the chat interface. A real implementation would connect to an AI API like OpenAI or similar services.`,
-      `That's an interesting point about "${userInput}". Let me share some thoughts: This interface showcases how a conversational AI chat would work with real-time message handling and smooth interactions.`
-    ];
-    return responses[Math.floor(Math.random() * responses.length)];
+      setMessages(prev => [...prev, aiMessage]);
+    } catch (error) {
+      console.error('Error calling chat API:', error);
+      const errorMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        role: 'assistant',
+        content: 'Sorry, there was an error processing your request. Please try again.',
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, errorMessage]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const clearChat = () => {
@@ -73,7 +91,7 @@ export default function AiChatPage() {
       {
         id: '1',
         role: 'assistant',
-        content: 'Hello! I\'m your AI assistant. How can I help you today?',
+        content: 'Hello! I\'m your AI assistant. Ask me anything about my experience, skills, or projects!',
         timestamp: new Date()
       }
     ]);
