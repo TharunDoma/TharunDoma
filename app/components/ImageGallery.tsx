@@ -20,9 +20,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
   const [autoPlay, setAutoPlay] = useState(true);
   const [fade, setFade] = useState(true);
 
-  if (!images || images.length === 0) {
-    return null;
-  }
+  const hasImages = !!images && images.length > 0;
 
   const currentImage = images[currentIndex];
 
@@ -46,7 +44,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
 
   // Auto-advance slideshow
   useEffect(() => {
-    if (!autoPlay) return;
+    if (!autoPlay || !hasImages) return;
 
     const interval = setInterval(() => {
       setFade(false);
@@ -57,7 +55,11 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
     }, 6000);
 
     return () => clearInterval(interval);
-  }, [autoPlay, images.length]);
+  }, [autoPlay, hasImages, images.length]);
+
+  if (!hasImages) {
+    return null;
+  }
 
   return (
     <section className="w-full mt-16 mb-8">

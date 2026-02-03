@@ -1,9 +1,6 @@
 import { NextResponse } from 'next/server';
 import { supabaseServer } from '../../lib/supabaseServer';
-
-// pdf-parse lacks TypeScript types by default
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const pdfParse = require('pdf-parse');
+import pdfParse from 'pdf-parse';
 
 export const runtime = 'nodejs';
 

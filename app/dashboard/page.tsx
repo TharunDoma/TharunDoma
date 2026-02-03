@@ -4,10 +4,10 @@ import { Code2, Layers, Rocket, Briefcase, BookOpen, Cpu } from 'lucide-react';
 
 export default function DashboardPage() {
   const stats = [
-    { title: 'Years of Experience', value: '3+ years', icon: Briefcase, color: 'sky' },
-    { title: 'Projects Delivered', value: '20+', icon: Rocket, color: 'indigo' },
-    { title: 'Tech Stack', value: 'Full‑stack & AI', icon: Code2, color: 'violet' },
-    { title: 'Core Domains', value: 'Web • Data • ML', icon: Layers, color: 'cyan' },
+    { title: 'Years of Experience', value: '3+ years', icon: Briefcase, color: 'sky', change: 'Updated' },
+    { title: 'Projects Delivered', value: '20+', icon: Rocket, color: 'indigo', change: 'Updated' },
+    { title: 'Tech Stack', value: 'Full‑stack & AI', icon: Code2, color: 'violet', change: 'Updated' },
+    { title: 'Core Domains', value: 'Web • Data • ML', icon: Layers, color: 'cyan', change: 'Updated' },
   ];
 
   const highlights = [

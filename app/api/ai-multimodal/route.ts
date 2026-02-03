@@ -2,9 +2,13 @@ import { NextResponse } from 'next/server';
 import { supabase } from '../../lib/supabaseClient';
 import OpenAI from 'openai';
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+const getOpenAIClient = () => {
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey) {
+    throw new Error('OPENAI_API_KEY is not set');
+  }
+  return new OpenAI({ apiKey });
+};
 
 export async function POST(req: Request) {
   try {
@@ -44,6 +48,7 @@ export async function POST(req: Request) {
 // Handle image upload with AI vision
 async function handleImageUpload(files: File[], instructions: string) {
   try {
+    const openai = getOpenAIClient();
     const uploadedImages = [];
 
     for (const file of files) {
@@ -141,6 +146,7 @@ async function handleImageUpload(files: File[], instructions: string) {
 // Handle resume/document analysis
 async function handleResumeAnalysis(file: File, instructions: string) {
   try {
+    const openai = getOpenAIClient();
     // 1. Extract text from file
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);

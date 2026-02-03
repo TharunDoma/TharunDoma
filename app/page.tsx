@@ -219,7 +219,7 @@ export default async function Home() {
           <div className="flex items-center gap-2 mb-6">
             <Briefcase className="text-emerald-400" size={28} />
             <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-              Roles I'm Looking For
+              Roles I am Looking For
             </h2>
           </div>
           {content.roles_looking_for ? (
