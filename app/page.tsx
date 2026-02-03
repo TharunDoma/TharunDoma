@@ -1,4 +1,4 @@
-import { supabase } from "@/app/lib/supabaseClient";
+import { supabase } from "./lib/supabaseClient";
 import { unstable_noStore as noStore } from "next/cache";
 import ImageGallery from "@/app/components/ImageGallery";
 import FloatingAIWidget from "@/app/components/FloatingAIWidget";

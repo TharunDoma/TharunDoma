@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import AIAssistant from './AIAssistant';
-import { supabase } from '@/app/lib/supabaseClient';
+import { supabase } from '../lib/supabaseClient';
 
 interface AIAvatar {
   image_url: string;

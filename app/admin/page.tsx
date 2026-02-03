@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import { ShieldCheck, LogOut, Image as ImageIcon, Upload, RefreshCw, Check, AlertCircle, Trash2, Plus, Edit2 } from "lucide-react";
-import { supabase } from "@/app/lib/supabaseClient";
+import { supabase } from "../lib/supabaseClient";
 import { MessageSquare, X } from "lucide-react";
 
 type ImageRow = {
