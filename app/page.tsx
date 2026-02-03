@@ -1,8 +1,8 @@
 import { supabase } from "./lib/supabaseClient";
 import { unstable_noStore as noStore } from "next/cache";
-import ImageGallery from "@/app/components/ImageGallery";
-import FloatingAIWidget from "@/app/components/FloatingAIWidget";
-import GLBAvatarWrapper from "@/app/components/GLBAvatarWrapper";
+import ImageGallery from "./components/ImageGallery";
+import FloatingAIWidget from "./components/FloatingAIWidget";
+import GLBAvatarWrapper from "./components/GLBAvatarWrapper";
 import Link from "next/link";
 import { Briefcase, BookOpen, Award, Code, Rocket, ExternalLink } from "lucide-react";
 

@@ -1,6 +1,6 @@
 'use client';
 
-import AIAssistant from '@/app/components/AIAssistant';
+import AIAssistant from '../components/AIAssistant';
 import { ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 
