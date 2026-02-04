@@ -34,7 +34,7 @@ export default function FloatingAIWidget() {
         if (splineData) {
           setAiAvatar({
             image_url: '',
-            title: splineData.title || 'AI Assistant',
+            title: splineData.title || "Tharun's Assistant",
             spline_url: splineData.description, // Spline URL stored in description
             is_3d: true
           });
@@ -55,7 +55,7 @@ export default function FloatingAIWidget() {
         if (data && !error) {
           setAiAvatar({
             image_url: data.image_data,
-            title: data.title || 'AI Assistant',
+            title: data.title || "Tharun's Assistant",
             is_3d: false
           });
         }
@@ -145,7 +145,7 @@ export default function FloatingAIWidget() {
                 </span>
               )}
               <div>
-                <h2 className="text-lg font-bold">{aiAvatar?.title || 'AI Assistant'}</h2>
+                <h2 className="text-lg font-bold">{aiAvatar?.title || "Tharun's Assistant"}</h2>
                 <p className="text-xs text-sky-100">Always here to help!</p>
               </div>
             </div>
