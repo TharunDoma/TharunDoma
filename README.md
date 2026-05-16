@@ -1,12 +1,21 @@
 ### Hi, I'm Tharun 👋
+Data Engineer building production-grade pipelines, model-serving APIs, and LLM-powered backends with Python and AWS.
 
-I'm a Data Engineer focused on building production-grade data pipelines, SQL workflows, and backend services with Python and AWS.
+- 🔭 **Currently:** Data Engineer at Cloud Systems LLC — Python ETL pipelines, SQL analytics, and model-serving APIs
+- 🎓 **M.S. Computer Science, UNC Charlotte** — GPA 3.9 (Dec 2025)
+- 🛠️ **Stack:** Python · SQL · FastAPI · PostgreSQL · AWS (Lambda, RDS, S3, EC2) · Docker · LangChain · ChromaDB · RAG · LLMs
+- 🌱 **Building toward:** Airflow orchestration · dbt transformations · Azure Data Engineering
+- 💬 **Open to:** Data Engineer · AI Backend Developer · ETL Developer · Analytics Engineer (W-2, US-based)
+- 📫 **Reach me:** [LinkedIn](https://www.linkedin.com/in/tharun-doma-1b113524b/) · tharunkittu101@gmail.com
 
-- 🔭 **Currently:** Data Engineer at Cloud Systems LLC — building Python pipelines, model-serving APIs, and SQL analytics workflows
-- 🎓 **Education:** M.S. Computer Science, UNC Charlotte (GPA 3.9, Dec 2025)
-- 🛠️ **Tech I work with:** Python, SQL, FastAPI, PostgreSQL, AWS (Lambda, RDS, S3, EC2), Docker, ETL pipelines, REST APIs
-- 🌱 **Currently learning:** Azure Data Engineering, dbt, Airflow
-- 💬 **Open to:** Full-time Data Engineer, ETL Developer, Backend Developer, and Data Analyst roles across the US
-- 📫 **Reach me:** [LinkedIn](https://www.linkedin.com/in/tharun-doma-1b113524b/) · [tharunkittu101@gmail.com]
+> 🛂 F-1 OPT — eligible for 24-month STEM extension. Up to 3 years US work authorization, no sponsorship needed to start.
 
-> F-1 OPT, eligible for the 24-month STEM extension — up to 3 years of US work authorization, no sponsorship needed to start.
+---
+
+### 🚀 Featured Projects
+
+| Project | What it does | Stack |
+|---|---|---|
+| [Automated Market Intelligence Pipeline](https://github.com/TharunDoma/automated-market-intelligence) | Daily ETL → LLM sentiment analysis → Snowflake, automated via GitHub Actions | Python · Groq (Llama) · Snowflake · Streamlit · GitHub Actions |
+| [Financial Analyst RAG Bot](https://github.com/TharunDoma/financial-rag-bot) | Ask natural language questions against Apple's 10-K SEC filing with source citations | ChromaDB · Gemini · LangChain · PyMuPDF · Streamlit |
+| [AI Resume Matcher](https://github.com/TharunDoma/ai-resume-matcher) | Compares resume vs. job description, returns structured match score + feedback | Gemini · FastAPI · PyMuPDF · Streamlit |
