@@ -1,44 +1,52 @@
 # Artisans — Events & Beyond 🪔
 
-A handcrafted, single-file website for an Indian wedding & event decor studio in
-Charlotte, NC — inspired by the real mandap work of **@eventsbyartisans / @artisansdecors**.
+A cinematic, photo-driven website for an Indian wedding & event decor studio in
+Charlotte, NC — built for the real mandap work of **@eventsbyartisans / @artisansdecors**.
 
-## What's inside
+Everything lives in one dependency-free `index.html` — no framework, no build step.
 
-Everything lives in one dependency-free `index.html` (no build step, no framework):
+## Motion & effects
 
-- **Hero** — layered mandap scene drawn entirely in SVG (gold pillars, temple doors,
-  elephants, brass lamps), swaying marigold garlands, floating flower petals,
-  mouse parallax and a shimmering gold title.
-- **Our Craft** — story section with a 3D-tilting illustrated panel and animated counters.
-- **Celebrations** — service cards (mandaps, haldi, sangeet, outdoor) with 3D hover tilt
-  and expanding gold corner frames.
-- **Gallery** — six cards, each with a hand-drawn SVG rendition of a real decor style
-  (peacock court, marigold muhurtham, gilded gopuram, rose veranda, vineyard nocturne,
-  golden-hour grove). Drop real photos in `images/` and they replace the art automatically.
-- **Process, testimonials carousel, venue chips, contact form** (opens a pre-filled email),
-  and a footer diya with a flickering flame.
-- Respects `prefers-reduced-motion`, fully responsive, mobile menu included.
+- **Hero** — full-screen photo slideshow with slow Ken Burns pan/zoom, crossfades,
+  swaying marigold garlands, floating petals and a shimmering gold headline.
+- **3D Motion Showcase** — a rotating ring of photo cards you can drag to spin
+  (auto-rotates, pauses on hover).
+- **Parallax banners** — two full-width photo bands that shift at a different
+  speed than the page as you scroll.
+- **Gallery** — photo cards with 3D hover tilt, slow zoom, gold shine sweep, and a
+  full-screen **lightbox** (click any photo; arrow keys / swipe buttons to browse).
+- **Film strip** — an endless slow-scrolling row of photos.
+- Plus scroll progress bar, reveal-on-scroll, animated counters, testimonial
+  carousel, mobile menu, and `prefers-reduced-motion` support.
 
-## Using real photos
+## ⭐ Putting in the REAL photos (the important part)
 
-Save your Instagram photos into `images/` with these names — each card swaps its
-illustration for the photo automatically (if a file is missing, the SVG art stays):
+The `images/` folder currently holds **stylized bokeh stand-ins** (warm defocused-light
+placeholders generated for layout). Replace them with real decor photos **using the same
+filenames** and every section — hero, carousel, gallery, banners, strip, lightbox —
+switches to the real photography automatically. No code changes needed.
 
-| File | Card |
+| File | Used as |
 |---|---|
-| `images/gallery-1.jpg` | The Peacock Court |
-| `images/gallery-2.jpg` | Marigold Muhurtham |
-| `images/gallery-3.jpg` | Gilded Gopuram |
-| `images/gallery-4.jpg` | Rose Veranda |
-| `images/gallery-5.jpg` | Vineyard Nocturne |
-| `images/gallery-6.jpg` | Golden Hour Grove |
+| `hero-1.jpg` … `hero-4.jpg` | Hero slideshow (landscape, ≥1920px wide looks best) |
+| `gallery-1.jpg` | Gallery: "The Peacock Court" (portrait 4:5) |
+| `gallery-2.jpg` | Gallery: "Marigold Muhurtham" |
+| `gallery-3.jpg` | Gallery: "Gilded Gopuram" |
+| `gallery-4.jpg` | Gallery: "Rose Veranda" |
+| `gallery-5.jpg` | Gallery: "Vineyard Nocturne" |
+| `gallery-6.jpg` | Gallery: "Golden Hour Grove" |
+| `banner-1.jpg`, `banner-2.jpg` | Parallax banners (wide landscape) |
+| `about-1.jpg` | "Our Craft" portrait |
 
-Portrait crops (4:5) look best.
+`.jpeg`, `.png` and `.webp` extensions also work.
+
+**Easiest way (from your phone or laptop):** open this repo on GitHub → navigate to
+`artisans-events-decor/images` → **Add file → Upload files** → drag the photos in,
+rename to match the table, commit. Done — the site is instantly real.
 
 ## Run it
 
-Open `index.html` in a browser — that's it. Or serve locally:
+Open `index.html` in a browser, or:
 
 ```bash
 cd artisans-events-decor
@@ -47,13 +55,10 @@ python3 -m http.server 8080   # http://localhost:8080
 
 ## Deploy
 
-Any static host works (GitHub Pages, Netlify, Vercel). For GitHub Pages:
-point Pages at this folder (or copy its contents to a `gh-pages` branch / a
-dedicated repo) and it's live — no build required.
+Any static host (GitHub Pages, Netlify, Vercel) — point it at this folder. No build.
 
 ## Customize
 
-- Colors live in the `:root` CSS variables at the top of `index.html`
-  (temple gold, marigold, maroon, jasmine ivory…).
-- Contact email: search for `hello@artisansevents.com` and replace (2 places).
-- Instagram links: search for `instagram.com`.
+- Colors: `:root` CSS variables at the top of `index.html`.
+- Contact email: search `hello@artisansevents.com` (2 places).
+- Gallery titles/captions: the `GALLERY` array in the `<script>` at the bottom.
