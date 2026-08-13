@@ -26,10 +26,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Pages must be enabled once by the repo owner:
+      # Settings -> Pages -> Build and deployment -> Source: "GitHub Actions"
       - name: Configure Pages
         uses: actions/configure-pages@v5
-        with:
-          enablement: true
 
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
