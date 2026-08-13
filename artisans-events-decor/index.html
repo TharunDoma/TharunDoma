@@ -427,6 +427,32 @@ section{position:relative;}
 .gal-note{margin-top:2.2rem;font-size:.8rem;color:#8a6c50;letter-spacing:.08em;}
 .gal-note a{color:var(--gold-deep);}
 
+/* ============================================================ FILMS */
+.films{
+  background:
+    radial-gradient(ellipse at 85% 0%,rgba(232,195,106,.16),transparent 50%),
+    linear-gradient(180deg,var(--ivory),#f3e7d0);
+}
+.films-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(240px,380px));
+  gap:2rem;justify-content:center;margin-top:3rem;
+}
+@media(max-width:680px){.films-grid{grid-template-columns:1fr;justify-items:center;}}
+.film-card{
+  position:relative;border-radius:6px;overflow:hidden;width:100%;max-width:380px;
+  box-shadow:0 30px 60px -26px rgba(59,36,23,.6);
+  border:1px solid rgba(201,150,46,.4);
+  transition:transform .45s,box-shadow .45s;
+}
+.film-card:hover{transform:translateY(-6px);box-shadow:0 40px 80px -30px rgba(59,36,23,.7);}
+.film-card video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;background:#1c0a08;}
+.film-card figcaption{
+  position:absolute;inset:auto 0 0 0;padding:2.4rem 1.2rem 1.1rem;
+  background:linear-gradient(180deg,transparent,rgba(28,10,8,.85));color:var(--ivory);text-align:left;
+}
+.film-card h4{color:var(--gold-bright);font-size:1.2rem;}
+.film-card p{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;opacity:.85;}
+
 /* ============================================================ FILM STRIP */
 .strip{background:var(--night);padding:1.2rem 0;overflow:hidden;border-top:1px solid rgba(232,195,106,.3);border-bottom:1px solid rgba(232,195,106,.3);}
 .strip-track{display:flex;gap:1rem;width:max-content;animation:stripScroll 46s linear infinite;}
@@ -767,6 +793,28 @@ footer small{font-size:.68rem;letter-spacing:.14em;opacity:.6;display:block;}
   </div>
 </section>
 
+<!-- ======================= FILMS ======================= -->
+<section class="films" id="films">
+  <div class="wrap center">
+    <span class="kicker reveal">In Motion</span>
+    <h2 class="section-title reveal" data-delay="1">Step Inside <em>the Celebration</em></h2>
+    <div class="films-grid">
+      <figure class="film-card reveal" data-delay="1">
+        <video muted loop playsinline preload="metadata" poster="images/film-1-poster.jpg">
+          <source src="images/film-1.mp4" type="video/mp4">
+        </video>
+        <figcaption><h4>The Grand Walk-In</h4><p>Floral entry arch · Ballroom aisle</p></figcaption>
+      </figure>
+      <figure class="film-card reveal" data-delay="2">
+        <video muted loop playsinline preload="metadata" poster="images/film-2-poster.jpg">
+          <source src="images/film-2.mp4" type="video/mp4">
+        </video>
+        <figcaption><h4>Floral Reverie</h4><p>Hanging gardens · Hand-set details</p></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <!-- ======================= FILM STRIP ======================= -->
 <div class="strip" aria-hidden="true"><div class="strip-track" id="stripTrack"></div></div>
 
@@ -939,12 +987,15 @@ function resolveImage(name){
 
 /* Gallery slots: title + subtitle shown on hover and in fallback panels */
 const GALLERY = [
-  {name:'gallery-1', title:'The Peacock Court',   sub:'Wedding · Hindu Center of Charlotte'},
-  {name:'gallery-2', title:'Marigold Muhurtham',  sub:'South Indian Wedding · Ballroom'},
-  {name:'gallery-3', title:'Gilded Gopuram',      sub:'Reception · The Ocean Ballroom'},
-  {name:'gallery-4', title:'Rose Veranda',        sub:'Wedding · Private Estate'},
-  {name:'gallery-5', title:'Vineyard Nocturne',   sub:'Outdoor Wedding · Treehouse Vineyards'},
-  {name:'gallery-6', title:'Golden Hour Grove',   sub:'Outdoor Ceremony · The Skyroom NC'},
+  {name:'gallery-1', title:'Gilded Heirloom',     sub:'Carved Gold Backdrop · Pearl Swags'},
+  {name:'gallery-2', title:'Jasmine Muhurtham',   sub:'Garland Wall · Silver Throne'},
+  {name:'gallery-3', title:'Temple Court',        sub:'Classic Gold Mandap · Wedding Stage'},
+  {name:'gallery-4', title:'Rose Pavilion',       sub:'Outdoor Pink Mandap · Ceremony'},
+  {name:'gallery-5', title:'Sangeet Nights',      sub:'Black Canopy · LED Dance Floor'},
+  {name:'gallery-6', title:'Golden Hour Grove',   sub:'Outdoor Carved Backdrop · Garlands'},
+  {name:'gallery-7', title:'Haldi Sunrise',       sub:'Lattice Arches · Marigold & Pink'},
+  {name:'gallery-8', title:'Marigold Meadow',     sub:'Outdoor Haldi · Golden Cones'},
+  {name:'gallery-9', title:'Garden Trellis',      sub:'Paper Florals · Garden Ceremony'},
 ];
 const HERO_SLOTS = ['hero-1','hero-2','hero-3','hero-4'];
 
@@ -1109,6 +1160,16 @@ parallaxTick();
       img.src = url; img.classList.add('loaded');
     });
   });
+})();
+
+/* ================= FILMS: play only while visible ================= */
+(function films(){
+  const vids = [...document.querySelectorAll('.film-card video')];
+  const vio = new IntersectionObserver(entries => entries.forEach(e => {
+    if (e.isIntersecting) e.target.play().catch(() => {});
+    else e.target.pause();
+  }), {threshold:.35});
+  vids.forEach(v => vio.observe(v));
 })();
 
 /* ================= LIGHTBOX ================= */
