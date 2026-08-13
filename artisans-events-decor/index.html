@@ -921,6 +921,9 @@ footer small{font-size:.68rem;letter-spacing:.14em;opacity:.6;display:block;}
    ============================================================ */
 const EXTS = ['jpg','jpeg','png','webp','JPG','JPEG','PNG'];
 function resolveImage(name){
+  /* single-file exports (e.g. hosted previews) can inline photos here */
+  if (window.EMBEDDED_IMAGES && window.EMBEDDED_IMAGES[name])
+    return Promise.resolve(window.EMBEDDED_IMAGES[name]);
   return new Promise(resolve => {
     let i = 0;
     (function tryNext(){
