@@ -6,7 +6,7 @@ Data Engineer building production-grade pipelines, model-serving APIs, and LLM-p
 - 🛠️ **Stack:** Python · SQL · FastAPI · PostgreSQL · AWS (Lambda, RDS, S3, EC2) · Docker · LangChain · ChromaDB · RAG · LLMs
 - 🌱 **Building toward:** Airflow orchestration · dbt transformations · Azure Data Engineering
 - 💬 **Open to:** Data Engineer · AI Backend Developer · ETL Developer · Analytics Engineer (W-2, US-based)
-- 📫 **Reach me:** [LinkedIn](https://www.linkedin.com/in/tharun-doma-de/) · tharundoma3@gmail.com
+- 📫 **Reach me:** [LinkedIn](https://www.linkedin.com/in/tharun-doma12/) · tharundoma11@gmail.com
 
 
 
